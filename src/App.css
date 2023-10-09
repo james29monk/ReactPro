@@ -1,0 +1,114 @@
+#root {
+width: 100vw;
+height:100vh;
+}
+
+
+nav{
+
+    position: fixed;
+    top:0px;
+    left: 0px;
+    width: 100%;
+    height: 15%;
+    padding:5px 90px;
+    background: linear-gradient(-45deg,rgba(0,0,0,0.5), rgb(0, 0, 0));
+    border-bottom: 1px solid #000000;
+    z-index: 2;
+}
+    .logo{
+        font-style: italic;
+        padding: 22px 20;
+        height: 80px;
+        float: left;
+        font-size: 50px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #ff0000;
+    }
+     
+   
+    
+
+    nav ul{
+        
+        list-style: none;
+        float: right;
+        margin: 0px;
+        margin-right: 10%;
+        padding: 0px;
+       display: flex;
+    }
+
+     .navList{
+        font-style: italic;
+        line-height: 80px;
+        color: #ff0000;
+        padding: 12px 30px;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    
+    
+    .top-nav ul li::after{
+        content:'';
+        display: block;
+        background:rgb(255, 0, 0);
+        width: 0px;
+        height: 1px;
+        transition-duration: 1s ;
+       
+    }
+    
+    .top-nav ul li:hover::after{
+width: 100%;
+background: #ffffff;
+    }
+
+
+
+    .navList:hover{
+        color: rgb(255, 0, 0);
+        ;
+    }
+
+
+
+  .mercuryDiv{
+    display: flex;
+justify-content:left;
+  }
+
+
+
+  .headerDiv{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height: 100vh;
+    background-image: url(https://www.nasa.gov/wp-content/uploads/2022/07/web_first_images_release.png);
+    background-size: cover;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    
+  }
+  .headerDiv h1{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 100;
+    margin-left: 5%;
+    margin-top: 40%;
+    font-size: 75px;
+    margin-bottom: 0%;
+  }
+  .headerDiv p{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 100;
+    margin-left: 5%;
+  }
+
+
+
+
