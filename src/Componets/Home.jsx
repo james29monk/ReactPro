@@ -8,12 +8,12 @@ import JupiterCard from "./Cards/JupiterCard"
 import SaturnCard from "./Cards/SaturnCard"
 import UranusCard from "./Cards/UranusCard"
 import NeptuneCard from "./Cards/NeptuneCard"
+import '../App.css'
 
 
 export const PlanetContext = createContext()
 
 
-import '../App.css'
 
 function Home() {
     const [planet, setPlanet] = useState([])
@@ -35,7 +35,6 @@ function Home() {
                 if (response.ok) {
                     let data = await response.json();
                     setPlanet(data);
-                    console.log(data);
                 } else {
                     console.error('Failed to fetch data');
                 }
