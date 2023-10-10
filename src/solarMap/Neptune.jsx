@@ -1,23 +1,50 @@
 import React, {useEffect,useState} from 'react'
-import { OrbitControls } from '@react-three/drei'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 import Neptunetexter from '../Texters/Neptune.jpeg'
-
+import * as THREE from 'three'
 
 
 function Neptune() {
     const colorMap = useLoader(TextureLoader, Neptunetexter )
     const [hover,setHover ] =useState(false)
+    const [orbit,setOrbit] = useState(0.0543)
+    const [followCamera,setFollowcamera]=useState(false)
+    const [orbitOff, setOrbitoff] = useState(false)
+    const myMesh = React.useRef();
+    const Dis = 40
+
+
+    const followNeptune = ()=>{
+      setFollowcamera((preFollowCamera)=>!preFollowCamera)
+      setOrbitoff((preOrbitOff)=>!preOrbitOff)
       
     
-      const myMesh = React.useRef();
-      const Dis = 40
-      const OrbitSpeed = 0.0543
-      useFrame(({clock}) => {
-        myMesh.current.position.z = Math.cos(clock.getElapsedTime() * OrbitSpeed)* Dis
-        myMesh.current.position.x = Math.sin(clock.getElapsedTime() * OrbitSpeed)* Dis
+      if(!orbitOff ){
+        setOrbit(0)
+      }else {
+        setOrbit(0.0543)
+      }
+    }
+  
+      useFrame(({clock, camera}) => {
+        myMesh.current.position.z = Math.cos(clock.getElapsedTime() * orbit)* Dis
+        myMesh.current.position.x = Math.sin(clock.getElapsedTime() * orbit)* Dis
         myMesh.current.rotation.y += 0.02;
+
+        const NeptunePosition = myMesh.current.position
+
+        const targetCamera = new THREE.Vector3(
+          NeptunePosition.y + 4,
+          NeptunePosition.x + .5,
+          NeptunePosition.z + -1 )
+          
+          
+          if(followCamera ){
+            camera.lookAt(NeptunePosition)
+            camera.position.copy(targetCamera)
+          } 
+
       });
 
       useEffect(()=>{
@@ -27,7 +54,8 @@ function Neptune() {
   return (
     <>
    
-    <mesh ref ={myMesh}rotation={[0,5,0]} 
+    <mesh ref ={myMesh}
+       onClick={followNeptune}
        onPointerOver={()=>setHover(true)}
        onPointerOut={()=>setHover(false)}
     >

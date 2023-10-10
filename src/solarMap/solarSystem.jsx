@@ -31,7 +31,7 @@ function solarSystem() {
    <OrbitControls />
    <CameraPosition event='mousedown'/>
    <color attach='background' args={['black']}/>
-   <pointLight intensity={5000}/>
+   <pointLight intensity={2000}/>
    <Sun />
    <Mercury />
    <Venus />

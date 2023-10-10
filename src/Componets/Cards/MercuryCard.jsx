@@ -1,26 +1,27 @@
-import React, {useEffect, useState} from 'react'
-import { useLoader, useFrame, Canvas } from '@react-three/fiber'
-import { TextureLoader } from 'three'
-import { Stars } from '@react-three/drei'
-import { OrbitControls } from '@react-three/drei'
-import Earth from '../../solarMap/Earth'
+import React, {useContext}  from 'react'
+import { PlanetContext } from '../Home'
 import './CardStyle.css'
 function MercuryCard() {
+
+
+    const PlanetData = useContext(PlanetContext)
+ console.log(PlanetData)
+
+ if (!PlanetData || PlanetData.length === 0) {
+  return <div>Loading...</div>;
+}
   return (
     <div>
 
 <div className="flip-card">
   <div className="flip-card-inner">
     <div className="flip-card-front">
-      
+    <img className='CardImg' src={PlanetData[0].imgSrc.img}/>
     </div>
     <div className="flip-card-back">
-      <Canvas>
-      <OrbitControls />
-      <pointLight intensity={5000}/>
-        <Mercury />
-        < Stars/>
-      </Canvas>
+    <p>{PlanetData[0].planetOrder}</p>
+      <h2>{PlanetData[0].name}</h2>
+      <p>{PlanetData[0].description}</p>
     </div>
   </div>
 </div>

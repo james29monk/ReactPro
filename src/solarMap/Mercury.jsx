@@ -1,8 +1,8 @@
 import React, {useEffect,useState} from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
-import Mercurytexter from '../Texters/Mercury.jpeg'
-
+import Mercurytexter from '../Texters/8k_mercury.jpg'
+import * as THREE from 'three'
 
 
 function Mercury() {
@@ -10,13 +10,42 @@ function Mercury() {
   const [hover,setHover ] =useState(false)
   const myMesh = React.useRef();
   const Dis = 7
-  const OrbitSpeed = 0.4787
+  const [orbit,setOrbit] = useState( 0.4787)
+  const [followCamera,setFollowcamera]=useState(false)
+  const [orbitOff, setOrbitoff] = useState(false)
+  
+
+  const followMercury = ()=>{
+    setFollowcamera((preFollowCamera)=>!preFollowCamera)
+    setOrbitoff((preOrbitOff)=>!preOrbitOff)
+    
+  
+    if(!orbitOff ){
+      setOrbit(0)
+    }else {
+      setOrbit(0.4787)
+    }
+  }
+
+  useFrame(({clock, camera}) => {
+    myMesh.current.position.z = Math.cos(clock.getElapsedTime() * orbit)* Dis
+    myMesh.current.position.x = Math.sin(clock.getElapsedTime() * orbit)* Dis
+    myMesh.current.rotation.y += 0.01;
 
 
-  useFrame(({clock}) => {
-    myMesh.current.position.z = Math.cos(clock.getElapsedTime() * OrbitSpeed)* Dis
-    myMesh.current.position.x = Math.sin(clock.getElapsedTime() * OrbitSpeed)* Dis
-    myMesh.current.rotation.y += 0.03;
+    const MercuryPosition = myMesh.current.position
+
+
+    const targetCamera = new THREE.Vector3(
+      MercuryPosition.y + 1,
+      MercuryPosition.x + .5,
+      MercuryPosition.z + -1 )
+      
+      
+      if(followCamera ){
+        camera.lookAt(MercuryPosition)
+        camera.position.copy(targetCamera)
+      } 
   });
     
   useEffect(()=>{
@@ -25,7 +54,8 @@ function Mercury() {
 
   return (
     <>
-    <mesh ref ={myMesh}rotation={[0,5,0]}
+    <mesh ref ={myMesh}
+    onClick={followMercury}
     onPointerOver={()=>setHover(true)}
     onPointerOut={()=>setHover(false)}
     >

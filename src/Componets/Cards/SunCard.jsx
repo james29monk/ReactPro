@@ -1,11 +1,14 @@
-import React, {useEffect, useState} from 'react'
-import { useLoader, useFrame, Canvas } from '@react-three/fiber'
-import { TextureLoader } from 'three'
-import { Stars } from '@react-three/drei'
-import { OrbitControls } from '@react-three/drei'
-import Earth from '../../solarMap/Earth'
+import React, {useContext}  from 'react'
+import { PlanetContext } from '../Home'
 import './CardStyle.css'
 function SunCard() {
+
+    const PlanetData = useContext(PlanetContext)
+ console.log(PlanetData)
+
+ if (!PlanetData || PlanetData.length === 0) {
+  return <div>Loading...</div>;
+}
   return (
     <div>
 
@@ -15,12 +18,9 @@ function SunCard() {
       
     </div>
     <div className="flip-card-back">
-      <Canvas>
-      <OrbitControls />
-      <pointLight intensity={5000}/>
-        <Sun />
-        < Stars/>
-      </Canvas>
+    <p>{PlanetData[0].planetOrder}</p>
+      <p>{PlanetData[0].name}</p>
+      <p>{PlanetData[0].description}</p>
     </div>
   </div>
 </div>

@@ -8,7 +8,7 @@ function NavBar() {
   return (
     <>
      <nav className ="top-nav" >
-            <div className ="logo">Logo</div>
+            <div className ="logo">space & Time</div>
             <ul className ="navStuff">
                 <li>
                 <Link  to= '/'  className="navList">Home</Link>

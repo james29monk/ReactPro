@@ -1,14 +1,11 @@
-import React, {useEffect,useState, useContext} from 'react'
-import { OrbitControls } from '@react-three/drei'
+import React, { useEffect,useState } from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 import Jupitertexter from '../Texters/Jupiter2.webp'
 import * as THREE from 'three'
-import {PlanesFind} from '../Componets/Cards/JupiterCard'
-
 
 function Jupiter() {
-    const find = useContext(PlanesFind)
+    
     const colorMap = useLoader(TextureLoader, Jupitertexter )
     const [hover,setHover ] =useState(false)
     const [followCamera,setFollowcamera]=useState(false)
@@ -47,9 +44,9 @@ function Jupiter() {
       const JupiterPosition = myMesh.current.position
 
       const targetCamera = new THREE.Vector3(
-        JupiterPosition.y + 5,
-        JupiterPosition.x + -1,
-        JupiterPosition.z + -2 )
+        JupiterPosition.y + 4,
+        JupiterPosition.x + 1,
+        JupiterPosition.z + -4 )
         
         
         if(followCamera ){

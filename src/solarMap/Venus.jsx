@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import { OrbitControls } from '@react-three/drei'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
-import Venustexter from '../Texters/Venus.jpeg'
-
+import Venustexter from '../Texters/venus2.jpeg'
+import * as THREE from 'three'
 
 
 function Venus() {
@@ -11,11 +10,39 @@ function Venus() {
     const [hover,setHover ] =useState(false)
     const myMesh = React.useRef();
     const Dis = 10
-    const OrbitSpeed =  0.3502
-    useFrame(({clock}) => {
-      myMesh.current.position.z = Math.cos(clock.getElapsedTime() * OrbitSpeed)* Dis
-      myMesh.current.position.x = Math.sin(clock.getElapsedTime() * OrbitSpeed)* Dis
-      myMesh.current.rotation.y += 0.03;
+    const [orbit,setOrbit] = useState(0.3502)
+    const [followCamera,setFollowcamera]=useState(false)
+    const [orbitOff, setOrbitoff] = useState(false)
+
+    const followVenus = ()=>{
+      setFollowcamera((preFollowCamera)=>!preFollowCamera)
+      setOrbitoff((preOrbitOff)=>!preOrbitOff)
+      
+    
+      if(!orbitOff ){
+        setOrbit(0)
+      }else {
+        setOrbit(0.3502)
+      }
+    }
+
+    useFrame(({clock, camera}) => {
+      myMesh.current.position.z = Math.cos(clock.getElapsedTime() * orbit)* Dis
+      myMesh.current.position.x = Math.sin(clock.getElapsedTime() * orbit)* Dis
+      myMesh.current.rotation.y += 0.01;
+
+      const VenusPosition = myMesh.current.position
+
+        const targetCamera = new THREE.Vector3(
+          VenusPosition.y + 2,
+          VenusPosition.x + .5,
+          VenusPosition.z + -1 )
+          
+          
+          if(followCamera ){
+            camera.lookAt(VenusPosition)
+            camera.position.copy(targetCamera)
+          } 
     });
       
     useEffect(()=>{
@@ -25,7 +52,8 @@ function Venus() {
   return (
     <>
     
-    <mesh ref ={myMesh}rotation={[0,5,0]}
+    <mesh ref ={myMesh}
+    onClick={followVenus}
     onPointerOver={()=>setHover(true)}
     onPointerOut={()=>setHover(false)}
     >

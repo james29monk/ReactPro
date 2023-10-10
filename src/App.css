@@ -17,7 +17,7 @@ nav{
     z-index: 2;
 }
     .logo{
-        font-style: italic;
+        font-family: 'Courier New', Courier, monospace;
         padding: 22px 20;
         height: 80px;
         float: left;
