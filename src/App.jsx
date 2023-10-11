@@ -1,5 +1,4 @@
 import React  from 'react'
-import SolarSystem from './solarMap/solarSystem'
 import '../src/App.css'
 import Home from './Componets/Home'
 import NavBar from './Componets/NavBar'

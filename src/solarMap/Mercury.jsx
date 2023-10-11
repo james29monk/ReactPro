@@ -5,7 +5,8 @@ import Mercurytexter from '../Texters/8k_mercury.jpg'
 import * as THREE from 'three'
 
 
-function Mercury() {
+const Mercury = React.memo(() => {
+
   const colorMap = useLoader(TextureLoader, Mercurytexter )
   const [hover,setHover ] =useState(false)
   const myMesh = React.useRef();
@@ -68,7 +69,7 @@ function Mercury() {
     </mesh>
     </>
   )
-}
+})
 
 
 export default Mercury

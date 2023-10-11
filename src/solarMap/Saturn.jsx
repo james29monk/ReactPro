@@ -6,7 +6,7 @@ import Saturntexter from '../Texters/vite.config.jpeg'
 import * as THREE from 'three'
 
 
-function Saturn() {
+const Saturn = React.memo(()=> {
     const colorMap = useLoader(TextureLoader, Saturntexter )
     const myMesh = React.useRef();
     const [hover,setHover ] =useState(false)
@@ -71,7 +71,7 @@ function Saturn() {
     </mesh>
     </>
   )
-}
+})
 
 
 export default Saturn

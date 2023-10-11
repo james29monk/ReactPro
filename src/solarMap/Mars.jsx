@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState,} from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 import Marstexter from '../Texters/Mars.jpeg'
 import * as THREE from 'three'
 
 
-function Mars() {
+const Mars = React.memo(()=> {
     const colorMap = useLoader(TextureLoader, Marstexter )
     const [hover,setHover ] =useState(false)
     const myMesh = React.useRef();
@@ -66,7 +66,7 @@ function Mars() {
     </mesh>
     </>
   )
-}
+})
 
 
 export default Mars

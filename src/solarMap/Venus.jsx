@@ -5,7 +5,7 @@ import Venustexter from '../Texters/venus2.jpeg'
 import * as THREE from 'three'
 
 
-function Venus() {
+const Venus = React.memo(()=> {
     const colorMap = useLoader(TextureLoader, Venustexter )
     const [hover,setHover ] =useState(false)
     const myMesh = React.useRef();
@@ -65,7 +65,7 @@ function Venus() {
     </mesh>
     </>
   )
-}
+})
 
 
 export default Venus

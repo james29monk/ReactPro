@@ -12,7 +12,7 @@ import Saturn from './Saturn'
 import Uranus from './Uranus'
 import Neptune from './Neptune'
 
-function Sun() {
+const Sun = React.memo(()=> {
     const colorMap = useLoader(TextureLoader, SunPic)
     const [hover,setHover ] =useState(false)
     const [followCamera,setFollowcamera]=useState(false)
@@ -39,6 +39,6 @@ function Sun() {
     </mesh>
     </>
   )
-}
+})
 
 export default Sun

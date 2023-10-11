@@ -5,7 +5,7 @@ import Uranustexter from '../Texters/Uranus.jpeg'
 import * as THREE from 'three'
 
 
-function Uranus() {
+const Uranus = React.memo(()=> {
     const colorMap = useLoader(TextureLoader, Uranustexter )
     const [hover,setHover ] =useState(false)
     const myMesh = React.useRef();
@@ -71,7 +71,7 @@ function Uranus() {
     </mesh>
     </>
   )
-}
+})
 
 
 export default Uranus

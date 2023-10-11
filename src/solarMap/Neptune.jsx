@@ -1,11 +1,11 @@
-import React, {useEffect,useState} from 'react'
+import React, {useEffect,useState,} from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 import Neptunetexter from '../Texters/Neptune.jpeg'
 import * as THREE from 'three'
 
 
-function Neptune() {
+const Neptune = React.memo(()=> {
     const colorMap = useLoader(TextureLoader, Neptunetexter )
     const [hover,setHover ] =useState(false)
     const [orbit,setOrbit] = useState(0.0543)
@@ -67,7 +67,7 @@ function Neptune() {
     </mesh>
     </>
   )
-}
+})
 
 
 export default Neptune

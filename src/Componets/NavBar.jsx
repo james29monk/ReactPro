@@ -15,11 +15,7 @@ function NavBar() {
                 </li>
                 <li>
                 <Link to= '/solarmodel'  className="navList" >Solar Model </Link>
-                </li>
-                <li>
-                <Link to='/donation'  className="navList" > Donation</Link>
-                </li>
-                
+                </li>  
             </ul>
         </nav>
     
@@ -29,7 +25,6 @@ function NavBar() {
     <Routes>
     <Route path='/' Component={Home}></Route>
     <Route path='/solarmodel' Component={solarSystem}></Route>
-    <Route path='/donation'Component={Donation} ></Route>
     </Routes>
 
 

@@ -2,8 +2,8 @@ import React, { useState, createContext }  from 'react'
 import { Stars } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import * as THREE from 'three'
-import CameraPosition from '../Functions/CameraPosition.jsx'
+import { Perf } from 'r3f-perf'
+import CameraPosition from '../Functions/CameraPosition'
 import Sun from './Sun'
 import Earth from './Earth'
 import Mercury from './Mercury'
@@ -42,6 +42,7 @@ function solarSystem() {
    <Uranus />
    <Neptune />
    <Stars />
+   {/* <Perf/> */}
    </Canvas>
     </>
   )

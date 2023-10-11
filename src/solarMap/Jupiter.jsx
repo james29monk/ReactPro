@@ -4,7 +4,7 @@ import { TextureLoader } from 'three'
 import Jupitertexter from '../Texters/Jupiter2.webp'
 import * as THREE from 'three'
 
-function Jupiter() {
+const Jupiter = React.memo(()=>{
     
     const colorMap = useLoader(TextureLoader, Jupitertexter )
     const [hover,setHover ] =useState(false)
@@ -85,7 +85,7 @@ function Jupiter() {
     </mesh>
     </>
   )
-}
+})
 
 
 export default Jupiter
