@@ -16,7 +16,7 @@ function SaturnCard() {
 <div className="flip-card">
   <div className="flip-card-inner">
     <div className="flip-card-front">
-    <img className='CardImg' src={PlanetData[5].imgSrc.img}/>
+    <img className='CardImgSat' src={PlanetData[5].imgSrc.img}/>
     </div>
     <div className="flip-card-back">
     <p>{PlanetData[5].planetOrder}</p>

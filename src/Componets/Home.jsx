@@ -78,37 +78,37 @@ function Home() {
 
                 </div>
                 <div className="mainDiv">
-                    <div className="mercuryDiv">
                         < MercuryCard />
+                        < VenusCard />
+                        <EarthCard />
+                         <MarsCard />
+                        <JupiterCard />
+                        <SaturnCard />
+                        <UranusCard/>
+                         <NeptuneCard/>
+                    <div className="mercuryDiv">
                     </div>
 
                     <div className="venusDiv">
-                        < VenusCard />
                     </div>
 
                     <div className="earthDiv">
-                        <EarthCard />
 
                     </div>
-                         <MarsCard />
                     <div className="marsDiv">
 
                     </div>
 
                     <div className="jupiterDiv">
-                        <JupiterCard />
                     </div>
 
                     <div className="saturnDiv">
-                        <SaturnCard />
                     </div>
 
                     <div className="uranusDiv">
-                        <UranusCard/>
                     </div>
 
                     <div className="neptuneDiv">
-                         <NeptuneCard/>
                     </div>
                 </div>
             </PlanetContext.Provider>
