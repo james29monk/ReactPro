@@ -45,7 +45,7 @@
  
 
   .CardImgSat{
-    margin-top: 100px;
+    margin-top: 25%;
      width: 80%;
     height: auto;}
 
@@ -54,9 +54,23 @@
     width: 80%;
     height: auto;
   }
+  .CardIntro{
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+  }
   
 
- 
+ @media (max-width:500px){
+  .flip-card{
+    width: 250px;
+    height: 250px;
+  }
+  .flip-card-back{
+    font-size: 10px;
+  }
+   
+ }
  
 
   

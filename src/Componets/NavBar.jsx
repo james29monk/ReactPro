@@ -2,7 +2,6 @@ import React from 'react'
 import {Link, Route, Routes} from 'react-router-dom'
 import solarSystem from '../solarMap/solarSystem'
 import Home from './Home'
-import Donation from './Donation'
 
 function NavBar() {
   return (

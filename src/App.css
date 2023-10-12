@@ -82,6 +82,7 @@ background: #ffffff;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    background-image: url(https://wallpapercave.com/wp/wp6017306.jpg);
     background-color: #000000;
   }
 
@@ -110,6 +111,29 @@ background: #ffffff;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 100;
     margin-left: 5%;
+  }
+
+
+  @media (max-width:500px){
+    .logo{
+      font-size: 30px;
+      height: 20px;
+    }
+   .navList{
+    margin-right: 110px;
+   height: px;
+    padding: 0%;
+    font-size: 10px;
+   }
+
+   .top-nav ul li:hover::after{
+    width: 50%;
+    background: #ffffff;
+        }
+   
+   
+   
+    
   }
 
 

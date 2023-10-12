@@ -10,10 +10,7 @@ import UranusCard from "./Cards/UranusCard"
 import NeptuneCard from "./Cards/NeptuneCard"
 import '../App.css'
 
-
 export const PlanetContext = createContext()
-
-
 
 function Home() {
     const [planet, setPlanet] = useState([])
@@ -46,29 +43,6 @@ function Home() {
         planetData();
     }, []);
 
-
-
-
-
-
-
-
-
-
-//     const planetinfo = planet.map((planet) => {
-//         const { name, description } = planet
-//         return
-//     })
-//   console.log(planetinfo[0].name)
-
-
-
-    //helps with education 
-    // Total number of professional astrologers in the U.S.	is 7000
-    // projected to grow 5 percent from 2022 to 2032
-
-
-
     return (
         <div>
             <PlanetContext.Provider value={planet}>
@@ -77,39 +51,16 @@ function Home() {
                     <p>Gain an understanding of our Solar system with this interactive website</p>
 
                 </div>
+                <div className="CardIntro" ><h2>Each card will provide you with an image and information about each planet</h2></div>
                 <div className="mainDiv">
                         < MercuryCard />
                         < VenusCard />
                         <EarthCard />
-                         <MarsCard />
+                        <MarsCard />
                         <JupiterCard />
                         <SaturnCard />
                         <UranusCard/>
-                         <NeptuneCard/>
-                    <div className="mercuryDiv">
-                    </div>
-
-                    <div className="venusDiv">
-                    </div>
-
-                    <div className="earthDiv">
-
-                    </div>
-                    <div className="marsDiv">
-
-                    </div>
-
-                    <div className="jupiterDiv">
-                    </div>
-
-                    <div className="saturnDiv">
-                    </div>
-
-                    <div className="uranusDiv">
-                    </div>
-
-                    <div className="neptuneDiv">
-                    </div>
+                        <NeptuneCard/>
                 </div>
             </PlanetContext.Provider>
         </div>
