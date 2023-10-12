@@ -1,7 +1,7 @@
-import React, { createContext }  from 'react'
+import React from 'react'
 import { Stars } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Loader } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei'
 import CameraPosition from '../Functions/CameraPosition'
 import Sun from './Sun'
 import Earth from './Earth'
@@ -13,14 +13,7 @@ import Saturn from './Saturn'
 import Uranus from './Uranus'
 import Neptune from './Neptune'
 
-
- export const OrbitContext = createContext()
-
 function solarSystem() {
-
-
-
-
 
 
 

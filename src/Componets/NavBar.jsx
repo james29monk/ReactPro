@@ -28,7 +28,7 @@ function NavBar() {
     <DropdownButton id="dropdown-item-button" title="🌎">
       <Link to= '/' ><Dropdown.Item as="button">Home</Dropdown.Item></Link>
       <Link to= '/solarmodel' ><Dropdown.Item as="button">Solar Model</Dropdown.Item></Link>
-      <Link to= '/Money' ><Dropdown.Item as="button">Donante</Dropdown.Item></Link>
+      <Link to= '/Money' ><Dropdown.Item as="button">Donate</Dropdown.Item></Link>
     </DropdownButton>
         </nav>
 

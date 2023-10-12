@@ -10,7 +10,7 @@ const Experience = React.memo(() =>{
     const myMesh = React.useRef();
     const colorMap = useLoader(TextureLoader, BoxImg)
     const [hover,setHover ] =useState(false)
-    const [rotSpeed,setRotSpeed] = useState(0.02)
+    const [rotSpeed,setRotSpeed] = useState(0.01)
 
   const clickFunc =()=>{
     setRotation(true)
@@ -31,7 +31,7 @@ const Experience = React.memo(() =>{
       setRotSpeed(0)
     }
     else{
-      setRotSpeed(0.02)
+      setRotSpeed(0.01)
     }
       });
   return (
