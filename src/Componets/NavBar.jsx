@@ -2,8 +2,14 @@ import React from 'react'
 import {Link, Route, Routes} from 'react-router-dom'
 import solarSystem from '../solarMap/solarSystem'
 import Home from './Home'
+import Donation from './Donation.jsx'
+import '../App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 function NavBar() {
+
   return (
     <>
      <nav className ="top-nav" >
@@ -15,8 +21,18 @@ function NavBar() {
                 <li>
                 <Link to= '/solarmodel'  className="navList" >Solar Model </Link>
                 </li>  
+                <li>
+                <Link to= '/Money'  className="navList" >Donate </Link>
+                </li>  
             </ul>
+    <DropdownButton id="dropdown-item-button" title="🌎">
+      <Link to= '/' ><Dropdown.Item as="button">Home</Dropdown.Item></Link>
+      <Link to= '/solarmodel' ><Dropdown.Item as="button">Solar Model</Dropdown.Item></Link>
+      <Link to= '/Money' ><Dropdown.Item as="button">Donante</Dropdown.Item></Link>
+    </DropdownButton>
         </nav>
+
+export default DropdownItemTagsExample;
     
   
     <Link to='other' ></Link>
@@ -24,6 +40,7 @@ function NavBar() {
     <Routes>
     <Route path='/' Component={Home}></Route>
     <Route path='/solarmodel' Component={solarSystem}></Route>
+    <Route path='/Money' Component={Donation}></Route>
     </Routes>
 
 

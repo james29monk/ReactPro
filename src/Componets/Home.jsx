@@ -10,6 +10,7 @@ import UranusCard from "./Cards/UranusCard"
 import NeptuneCard from "./Cards/NeptuneCard"
 import '../App.css'
 
+
 export const PlanetContext = createContext()
 
 function Home() {
@@ -51,7 +52,7 @@ function Home() {
                     <p>Gain an understanding of our Solar system with this interactive website</p>
 
                 </div>
-                <div className="CardIntro" ><h2>Each card will provide you with an image and information about each planet</h2></div>
+                <div className="CardIntro" ><h2> Each card will provide you with an image and information about the planets in our Solar System. Happy Exploring! </h2></div>
                 <div className="mainDiv">
                         < MercuryCard />
                         < VenusCard />

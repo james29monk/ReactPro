@@ -57,11 +57,15 @@
   .CardIntro{
     display: flex;
     justify-content: center;
+    color: #ffffff;
     background-color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 50;
   }
   
 
  @media (max-width:500px){
+  
   .flip-card{
     width: 250px;
     height: 250px;
