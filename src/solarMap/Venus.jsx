@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
+import { Text } from '@react-three/drei'
 import Venustexter from '../Texters/venus2.jpeg'
 import * as THREE from 'three'
 
@@ -59,6 +60,10 @@ const Venus = React.memo(()=> {
         emissive={0xffffff}
         emissiveIntensity={ hover ? 1 : 0}
         />
+         {followCamera ? (<Text
+         scale={.4}
+         position={[0,0,1]}
+         >Venus</Text>):(null)}
     </mesh>
     </>
   )

@@ -1,6 +1,7 @@
 import React, {useEffect,useState,useRef} from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
+import { Text } from '@react-three/drei'
 import Saturntexter from '../Texters/vite.config.jpeg'
 import * as THREE from 'three'
 
@@ -57,6 +58,10 @@ const Saturn = React.memo(()=> {
          emissive={0xffffff}
          emissiveIntensity={ hover ? 1 : 0}
         />
+         {followCamera ? (<Text
+         scale={.8}
+         position={[0,0,2]}
+         >Saturn</Text>):(null)}
     </mesh>
     </>
   )

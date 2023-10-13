@@ -1,6 +1,7 @@
 import React, { useEffect,useState,useRef } from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
+import { Text } from '@react-three/drei'
 import Jupitertexter from '../Texters/Jupiter2.webp'
 import * as THREE from 'three'
 
@@ -61,6 +62,10 @@ const Jupiter = React.memo(()=>{
          emissive={0xffffff}
          emissiveIntensity={ hover ? 1 : 0}
           />
+           {followCamera ? (<Text
+         scale={.8}
+         position={[0,0,2.5]}
+         >Jupiter</Text>):(null)}
     </mesh>
     </>
   )

@@ -8,7 +8,7 @@ import NightEarth from '../Texters/nightEarth .jpeg'
 
 function Earth() {
 // Lines 11 & 12 loads my Texter using a THREE hook called useLoader 
-// useLoader alows you to import items into Canvas 
+// useLoader allows you to import items into Canvas 
 //This loader Takes 
   const colorMap = useLoader(TextureLoader, Earthtexter)
   const nightMap = useLoader(TextureLoader, NightEarth)
@@ -16,12 +16,12 @@ function Earth() {
   const [hover,setHover ] = useState(false)
   const [followCamera,setFollowcamera]=useState(false)
   const [orbitOff, setOrbitoff] = useState(false)
-//Line 20 I use a useRef hook for my mesh so that when use myMesh or add functionality it won't re-renders the page when I interact with myMesh.
+//Line 21 I use a useRef hook for my mesh so that when use myMesh or add functionality it won't re-renders the page when I interact with myMesh.
 // myMesh is used to add a texter to my objects in the component 
   const myMesh = useRef();
-//Line 21 useState is used to control my orbit speed in my useFrame hook
+//Line 23 useState is used to control my orbit speed in my useFrame hook
   const [orbit,setOrbit] = useState(0.2978)
-//Line 23 controls the distance on the this components orbit
+//Line 25 controls the distance on the this components orbit
   const Dis = 14
 
   
@@ -61,14 +61,13 @@ function Earth() {
         // This const repersents the current posistion of my object mesh 
         const earthPosition = myMesh.current.position
         
-
-        // this const uses  a Vector3 class to stores the coordinates of my camera to use later   
+        // this const uses a Vector3 class to stores the coordinates of my camera to use later   
         const targetCamera = new THREE.Vector3(
           earthPosition.y + 2,
           earthPosition.x + 1,
           earthPosition.z + -.5 )
 
-          //line 71 chages the camera value if the followcamera state is true 
+          //line 71 chages the camera value if the followCamera state is true 
           if(followCamera){
             camera.lookAt(earthPosition)
             camera.position.copy(targetCamera)
@@ -88,11 +87,10 @@ function Earth() {
          emissive={0xffffff}
          emissiveIntensity={ hover ? 20 : 1.5}
          />
-         {/* if(followCamera)
-         <Text
+         {followCamera ? (<Text
          scale={.4}
          position={[0,0,1]}
-         >Earth</Text> */}
+         >Earth</Text>):(null)}
     </mesh>
     </>
   )

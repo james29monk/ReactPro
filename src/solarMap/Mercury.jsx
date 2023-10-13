@@ -1,6 +1,7 @@
 import React, {useEffect,useState, useRef} from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
+import { Text } from '@react-three/drei'
 import Mercurytexter from '../Texters/8k_mercury.jpg'
 import * as THREE from 'three'
 
@@ -60,6 +61,10 @@ const Mercury = React.memo(() => {
         emissive={0xffffff}
         emissiveIntensity={ hover ? 1 : 0}
         />
+         {followCamera ? (<Text
+         scale={.2}
+         position={[0,0,.5]}
+         >Mercury</Text>):(null)}
     </mesh>
     </>
   )
