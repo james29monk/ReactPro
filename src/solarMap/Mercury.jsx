@@ -1,26 +1,23 @@
-import React, {useEffect,useState} from 'react'
+import React, {useEffect,useState, useRef} from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 import Mercurytexter from '../Texters/8k_mercury.jpg'
 import * as THREE from 'three'
 
-
 const Mercury = React.memo(() => {
 
   const colorMap = useLoader(TextureLoader, Mercurytexter )
   const [hover,setHover ] =useState(false)
-  const myMesh = React.useRef();
+  const myMesh = useRef();
   const Dis = 7
   const [orbit,setOrbit] = useState( 0.4787)
   const [followCamera,setFollowcamera]=useState(false)
   const [orbitOff, setOrbitoff] = useState(false)
   
-
   const followMercury = ()=>{
     setFollowcamera((preFollowCamera)=>!preFollowCamera)
     setOrbitoff((preOrbitOff)=>!preOrbitOff)
     
-  
     if(!orbitOff ){
       setOrbit(0)
     }else {
@@ -33,15 +30,12 @@ const Mercury = React.memo(() => {
     myMesh.current.position.x = Math.sin(clock.getElapsedTime() * orbit)* Dis
     myMesh.current.rotation.y += 0.01;
 
-
     const MercuryPosition = myMesh.current.position
-
 
     const targetCamera = new THREE.Vector3(
       MercuryPosition.y + 1,
       MercuryPosition.x + .5,
       MercuryPosition.z + -1 )
-      
       
       if(followCamera ){
         camera.lookAt(MercuryPosition)

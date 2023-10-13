@@ -1,24 +1,13 @@
-import React, {useEffect, useState, createContext} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
-import * as THREE from 'three'
 import SunPic from '../Texters/8k_sun.jpg'
-import Mercury from './Mercury'
-import Venus from './Venus'
-import Earth from './Earth'
-import Mars from './Mars'
-import Jupiter from './Jupiter'
-import Saturn from './Saturn'
-import Uranus from './Uranus'
-import Neptune from './Neptune'
 
 const Sun = React.memo(()=> {
     const colorMap = useLoader(TextureLoader, SunPic)
     const [hover,setHover ] =useState(false)
     const [followCamera,setFollowcamera]=useState(false)
-    const myMesh = React.useRef();
-
-    
+    const myMesh = useRef();
 
       useFrame(({camera}) => {
         myMesh.current.rotation.y -= 0.01;

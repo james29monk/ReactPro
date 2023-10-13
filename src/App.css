@@ -3,10 +3,7 @@ width: 100vw;
 height:100vh;
 background-color: #000000;
 }
-
-
 nav{
-
     position: fixed;
     top:0px;
     left: 0px;
@@ -27,20 +24,15 @@ nav{
         text-transform: uppercase;
         color: #ff0000;
     }
-     
-   
-    
-
     nav ul{
         
         list-style: none;
         float: right;
         margin: 0px;
-        margin-right: 10%;
+        margin-right: 0%;
         padding: 0px;
        display: flex;
     }
-
      .navList{
         font-style: italic;
         line-height: 80px;
@@ -51,9 +43,6 @@ nav{
         font-weight: bold;
         text-transform: uppercase;
     }
-
-    
-    
     .top-nav ul li::after{
         content:'';
         display: block;
@@ -63,21 +52,14 @@ nav{
         transition-duration: 1s ;
        
     }
-    
     .top-nav ul li:hover::after{
 width: 100%;
 background: #ffffff;
     }
-
-
-
     .navList:hover{
         color: rgb(255, 0, 0);
         ;
     }
-
-
-
   .mainDiv{
     display: flex;
     justify-content: center;
@@ -85,9 +67,6 @@ background: #ffffff;
     background-image: url(https://wallpapercave.com/wp/wp6017306.jpg);
     background-color: #000000;
   }
-
-
-
   .headerDiv{
     display: flex;
     flex-direction: column;
@@ -97,7 +76,6 @@ background: #ffffff;
     background-size: cover;
     background-attachment:fixed;
     background-repeat: no-repeat;
-    
   }
   .headerDiv h1{
     font-family: 'Courier New', Courier, monospace;
@@ -114,17 +92,13 @@ background: #ffffff;
     font-weight: 100;
     margin-left: 5%;
   }
-
-
   .donateDiv{
     width: 100%;
     height: 100%;
   }
-
   #dropdown-item-button{
     display: none;
   }
-
   @media (max-width:707px){
     nav{
    height: 10%;
@@ -135,7 +109,6 @@ background: #ffffff;
       margin-left: 100%;
       
     }
-
     .logo{
       font-size: 30px;
       height: 20px;
@@ -146,40 +119,27 @@ background: #ffffff;
     padding: 0%;
     font-size: 10px;
    }
-
    .top-nav ul li:hover::after{
     width: 50%;
     background: #ffffff;
    }
-
    .headerDiv h1{
     margin-top: 250px;
    }
-   
   }
- 
-
-
   @media (max-width:500px){
-    
     .navList{
     font-size: 5px;}
     .dropdown-item-button{
       display: flex;
         }
-
         .logo{
           font-size: 25px;
           height: 20px;
         }
-
         .headerDiv h1{
-         
           margin-top: 70%;
-          
         }
-      
-      
   }
 
   

@@ -14,12 +14,11 @@ import Uranus from './Uranus'
 import Neptune from './Neptune'
 
 function solarSystem() {
-
-
-
   return (
     <>
+    {/* Canvas component is what makes the 3D space  */}
    <Canvas camera={{fov: 75, near: 0.1, far: 1000, position: [27,16,18] }}>
+    {/* OrbitControls allows you to move the camera around the scene with your mouse */}
    <OrbitControls />
    <CameraPosition event='mousedown'/>
    <color attach='background' args={['black']}/>

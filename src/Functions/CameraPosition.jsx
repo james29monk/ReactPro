@@ -1,6 +1,5 @@
 import {useThree} from '@react-three/fiber'
 import { useEffect, useRef } from 'react'
-import React from 'react'
 
 function CameraPosition({event}) {
     const { camera }= useThree()

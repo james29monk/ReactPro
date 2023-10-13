@@ -1,32 +1,29 @@
-import React, {useEffect, useState,} from 'react'
+import React, {useEffect, useState,useRef} from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 import Marstexter from '../Texters/Mars.jpeg'
 import * as THREE from 'three'
 
-
 const Mars = React.memo(()=> {
     const colorMap = useLoader(TextureLoader, Marstexter )
     const [hover,setHover ] =useState(false)
-    const myMesh = React.useRef();
+    const myMesh = useRef();
     const Dis = 17
     const [orbit,setOrbit] = useState(0.24077)
     const [followCamera,setFollowcamera]=useState(false)
     const [orbitOff, setOrbitoff] = useState(false)
 
-
     const followMars = ()=>{
       setFollowcamera((preFollowCamera)=>!preFollowCamera)
       setOrbitoff((preOrbitOff)=>!preOrbitOff)
       
-    
       if(!orbitOff ){
         setOrbit(0)
       }else {
         setOrbit(0.24077)
       }
     }
-    
+
     useFrame(({clock, camera}) => {
       myMesh.current.position.z = Math.cos(clock.getElapsedTime() * orbit)* Dis
       myMesh.current.position.x = Math.sin(clock.getElapsedTime() * orbit)* Dis
@@ -34,12 +31,10 @@ const Mars = React.memo(()=> {
 
       const MarsPosition = myMesh.current.position
 
-
       const targetCamera = new THREE.Vector3(
         MarsPosition.y + 1,
         MarsPosition.x + .5,
         MarsPosition.z + -1 )
-        
         
         if(followCamera ){
           camera.lookAt(MarsPosition)
@@ -52,7 +47,6 @@ const Mars = React.memo(()=> {
     },[hover])
   return (
     <>
-  
     <mesh ref ={myMesh}
     onClick={followMars}
     onPointerOver={()=>setHover(true)}

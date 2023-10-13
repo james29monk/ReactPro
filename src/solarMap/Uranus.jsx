@@ -1,14 +1,13 @@
-import React, {useEffect,useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 import Uranustexter from '../Texters/Uranus.jpeg'
 import * as THREE from 'three'
 
-
 const Uranus = React.memo(()=> {
     const colorMap = useLoader(TextureLoader, Uranustexter )
     const [hover,setHover ] =useState(false)
-    const myMesh = React.useRef();
+    const myMesh = useRef();
     const Dis = 34
     const [orbit,setOrbit] = useState(0.0681)
     const [followCamera,setFollowcamera]=useState(false)
@@ -18,16 +17,12 @@ const Uranus = React.memo(()=> {
       setFollowcamera((preFollowCamera)=>!preFollowCamera)
       setOrbitoff((preOrbitOff)=>!preOrbitOff)
       
-    
       if(!orbitOff ){
         setOrbit(0)
       }else {
         setOrbit(0.0681)
       }
     }
-
-
-
 
     useFrame(({clock, camera}) => {
       myMesh.current.position.z = Math.cos(clock.getElapsedTime() * orbit)* Dis
@@ -41,7 +36,6 @@ const Uranus = React.memo(()=> {
           UranusPosition.x + .5,
           UranusPosition.z + -1 )
           
-          
           if(followCamera ){
             camera.lookAt(UranusPosition)
             camera.position.copy(targetCamera)
@@ -52,11 +46,8 @@ const Uranus = React.memo(()=> {
       document.body.style.cursor = hover ? 'pointer':'auto'
     },[hover])
     
-
-
   return (
     <>
-   
     <mesh ref ={myMesh}
     onClick={followUranus}
     onPointerOver={()=>setHover(true)}
@@ -72,6 +63,5 @@ const Uranus = React.memo(()=> {
     </>
   )
 })
-
 
 export default Uranus

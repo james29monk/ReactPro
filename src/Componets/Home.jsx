@@ -10,14 +10,11 @@ import UranusCard from "./Cards/UranusCard"
 import NeptuneCard from "./Cards/NeptuneCard"
 import '../App.css'
 
-
 export const PlanetContext = createContext()
 
 function Home() {
     const [planet, setPlanet] = useState([])
-    const [planetImg, setPlanetImg] = useState('')
-
-
+    
     useEffect(() => {
         const planetData = async () => {
             const options = {

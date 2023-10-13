@@ -1,14 +1,12 @@
-import React, {useEffect,useState} from 'react'
-import { OrbitControls } from '@react-three/drei'
+import React, {useEffect,useState,useRef} from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 import Saturntexter from '../Texters/vite.config.jpeg'
 import * as THREE from 'three'
 
-
 const Saturn = React.memo(()=> {
     const colorMap = useLoader(TextureLoader, Saturntexter )
-    const myMesh = React.useRef();
+    const myMesh = useRef();
     const [hover,setHover ] =useState(false)
     const [orbit,setOrbit] = useState(0.0969)
     const [followCamera,setFollowcamera]=useState(false)
@@ -33,23 +31,15 @@ const Saturn = React.memo(()=> {
 
       const SaturnPosition = myMesh.current.position
 
-
       const targetCamera = new THREE.Vector3(
         SaturnPosition.y + 5,
         SaturnPosition.x + .5,
         SaturnPosition.z + -3 )
         
-        
         if(followCamera ){
           camera.lookAt(SaturnPosition)
           camera.position.copy(targetCamera)
         } 
-
-
-
-
-
-
     });
     useEffect(()=>{
       document.body.style.cursor = hover ? 'pointer':'auto'
@@ -57,7 +47,6 @@ const Saturn = React.memo(()=> {
     
   return (
     <>
-    
     <mesh ref ={myMesh}
       onClick={followSaturn}
       onPointerOver={()=>setHover(true)}
@@ -72,6 +61,5 @@ const Saturn = React.memo(()=> {
     </>
   )
 })
-
 
 export default Saturn

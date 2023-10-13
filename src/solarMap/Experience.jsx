@@ -17,9 +17,7 @@ const Experience = React.memo(() =>{
     if(rotatin){
       setRotation(false)
     }
-    
   }
-
     useEffect(()=>{
         document.body.style.cursor = hover ? 'pointer':'auto'
       },[hover])
@@ -34,6 +32,7 @@ const Experience = React.memo(() =>{
       setRotSpeed(0.01)
     }
       });
+      
   return (
     <>
     <mesh ref={myMesh} 

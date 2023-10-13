@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react' 
-import * as THREE from 'three' // imports THREE Library for use
+import * as THREE from 'three' 
+import { Text } from '@react-three/drei'
 import { useLoader, useFrame } from '@react-three/fiber' 
 import { TextureLoader } from 'three'
 import Earthtexter from '../Texters/earthmap.jpg'
@@ -11,12 +12,12 @@ function Earth() {
 //This loader Takes 
   const colorMap = useLoader(TextureLoader, Earthtexter)
   const nightMap = useLoader(TextureLoader, NightEarth)
-//Lines 14,15 & 16 uses useState to hold my true/falsue values for onclick and onPointerOver functions 
+//Lines 15,16 & 17 uses useState to hold my true/falsue values for onclick and onPointerOver functions 
   const [hover,setHover ] = useState(false)
   const [followCamera,setFollowcamera]=useState(false)
   const [orbitOff, setOrbitoff] = useState(false)
-//Line 19 i use a useRef hook for my mesh so that when use myMesh it won't re-renders the page 
-//when I interact with myMesh. myMesh is used to add a texter to my objects in the component 
+//Line 20 I use a useRef hook for my mesh so that when use myMesh or add functionality it won't re-renders the page when I interact with myMesh.
+// myMesh is used to add a texter to my objects in the component 
   const myMesh = useRef();
 //Line 21 useState is used to control my orbit speed in my useFrame hook
   const [orbit,setOrbit] = useState(0.2978)
@@ -87,6 +88,11 @@ function Earth() {
          emissive={0xffffff}
          emissiveIntensity={ hover ? 20 : 1.5}
          />
+         {/* if(followCamera)
+         <Text
+         scale={.4}
+         position={[0,0,1]}
+         >Earth</Text> */}
     </mesh>
     </>
   )

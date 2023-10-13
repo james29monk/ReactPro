@@ -1,9 +1,8 @@
-import React, {useEffect,useState,} from 'react'
+import React, {useEffect,useState, useRef} from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 import Neptunetexter from '../Texters/Neptune.jpeg'
 import * as THREE from 'three'
-
 
 const Neptune = React.memo(()=> {
     const colorMap = useLoader(TextureLoader, Neptunetexter )
@@ -11,22 +10,19 @@ const Neptune = React.memo(()=> {
     const [orbit,setOrbit] = useState(0.0543)
     const [followCamera,setFollowcamera]=useState(false)
     const [orbitOff, setOrbitoff] = useState(false)
-    const myMesh = React.useRef();
+    const myMesh = useRef();
     const Dis = 40
-
 
     const followNeptune = ()=>{
       setFollowcamera((preFollowCamera)=>!preFollowCamera)
       setOrbitoff((preOrbitOff)=>!preOrbitOff)
       
-    
       if(!orbitOff ){
         setOrbit(0)
       }else {
         setOrbit(0.0543)
       }
     }
-  
       useFrame(({clock, camera}) => {
         myMesh.current.position.z = Math.cos(clock.getElapsedTime() * orbit)* Dis
         myMesh.current.position.x = Math.sin(clock.getElapsedTime() * orbit)* Dis
@@ -53,7 +49,6 @@ const Neptune = React.memo(()=> {
     
   return (
     <>
-   
     <mesh ref ={myMesh}
        onClick={followNeptune}
        onPointerOver={()=>setHover(true)}
@@ -68,6 +63,5 @@ const Neptune = React.memo(()=> {
     </>
   )
 })
-
 
 export default Neptune

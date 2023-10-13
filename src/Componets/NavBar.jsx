@@ -9,7 +9,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
 function NavBar() {
-
   return (
     <>
      <nav className ="top-nav" >
@@ -30,20 +29,13 @@ function NavBar() {
       <Link to= '/solarmodel' ><Dropdown.Item as="button">Solar Model</Dropdown.Item></Link>
       <Link to= '/Money' ><Dropdown.Item as="button">Donate</Dropdown.Item></Link>
     </DropdownButton>
-        </nav>
+        </nav>  
 
-export default DropdownItemTagsExample;
-    
-  
-    <Link to='other' ></Link>
-    
     <Routes>
     <Route path='/' Component={Home}></Route>
     <Route path='/solarmodel' Component={solarSystem}></Route>
     <Route path='/Money' Component={Donation}></Route>
     </Routes>
-
-
     </>
   )
 }

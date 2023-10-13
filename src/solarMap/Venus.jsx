@@ -1,14 +1,13 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 import Venustexter from '../Texters/venus2.jpeg'
 import * as THREE from 'three'
 
-
 const Venus = React.memo(()=> {
     const colorMap = useLoader(TextureLoader, Venustexter )
     const [hover,setHover ] =useState(false)
-    const myMesh = React.useRef();
+    const myMesh = useRef();
     const Dis = 10
     const [orbit,setOrbit] = useState(0.3502)
     const [followCamera,setFollowcamera]=useState(false)
@@ -18,7 +17,6 @@ const Venus = React.memo(()=> {
       setFollowcamera((preFollowCamera)=>!preFollowCamera)
       setOrbitoff((preOrbitOff)=>!preOrbitOff)
       
-    
       if(!orbitOff ){
         setOrbit(0)
       }else {
@@ -51,7 +49,6 @@ const Venus = React.memo(()=> {
     
   return (
     <>
-    
     <mesh ref ={myMesh}
     onClick={followVenus}
     onPointerOver={()=>setHover(true)}
@@ -66,6 +63,5 @@ const Venus = React.memo(()=> {
     </>
   )
 })
-
 
 export default Venus
