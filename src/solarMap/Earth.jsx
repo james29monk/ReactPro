@@ -23,9 +23,6 @@ function Earth() {
   const [orbit,setOrbit] = useState(0.2978)
 //Line 25 controls the distance on the this components orbit
   const Dis = 14
-
-  
-  
   
    // This function controls the boolean values I use so my camera can follow my earth component  
    const followEarth = ()=>{

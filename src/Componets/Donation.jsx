@@ -1,6 +1,6 @@
 import React, { createContext ,useState} from 'react'
 import { Canvas } from '@react-three/fiber'
-import Experience from '../solarMap/Experience'
+import Experience from '../solarMap/Donate'
 import { OrbitControls, Stars} from '@react-three/drei'
 import '../App.css'
 
